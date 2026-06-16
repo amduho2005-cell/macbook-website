@@ -1,4 +1,5 @@
 import React from 'react'
+import { navLinks } from '../constants'
 
 const NavBar = () => {
   return (
@@ -7,20 +8,21 @@ const NavBar = () => {
             <img src="/logo.svg" alt="Apple Logo" />
 
             <ul>
-                {[
-                    { Label: "Store" },
-                    { Label: "Mac" },
-                    { Label: "iPhone" },
-                    { Label: "Watch" },
-                    { Label: "Vision" },
-                    { Label: "AirPods" },
-                    
-                ] .map((link) => (
-                    <li key={link.Label}>
-                        <a href="{link.Label}">{link.Label}</a>
+                {navLinks.map(( { label }) => (
+                    <li key={label}>
+                        <a href={label}>{label}</a>
                     </li>
                 ))}
             </ul>
+
+            <div classname="flex-center gap-3">
+                <button>
+                    <img src="/search.svg" alt="Search" />
+                </button>
+                <button>
+                    <img src="/cart.svg" alt="Cart" />
+                </button>
+            </div>
         </nav>
     </header>
   )
